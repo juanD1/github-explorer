@@ -1,0 +1,41 @@
+# Node modules
+node_modules/
+
+# Next.js build output
+.next/
+out/
+
+# Production environment variables
+.env.production
+.env.local
+.env.development.local
+.env.test.local
+
+# Development environment variables
+.env
+
+# Logs
+*.log
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# IDE configuration files
+.vscode/
+.idea/
+
+# NPM package lock
+package-lock.json
+
+# Build directory
+dist/
+
+# Snyk reports
+.snyk
+
+# Local history for IDEs
+.localhistory/
+
+# macOS files
+*.DS_Store
