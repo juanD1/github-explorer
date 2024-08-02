@@ -1,11 +1,12 @@
 import { NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { APP_NAME } from "@/consts";
 
 const Home: NextPage = () => {
   return (
     <main>
-      <h1 className="text-4xl font-bold mb-8">Welcome to GitHub Search App</h1>
+      <h1 className="text-4xl font-bold mb-8">Welcome to {APP_NAME}</h1>
       <div className="grid gap-8 md:grid-cols-1 lg:grid-cols-2">
         <div className="p-4 border rounded-md shadow-md">
           <Image
