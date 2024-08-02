@@ -12,7 +12,7 @@ interface UseUsersReturn {
   users: User[];
   filteredUsers: User[];
   handleSearch: (query: string) => Promise<void>;
-  handleFilter: (filter: string) => void;
+  handleFilterByOrder: (filter: string | undefined) => void;
 }
 
 const useUsers = (): UseUsersReturn => {
@@ -35,7 +35,7 @@ const useUsers = (): UseUsersReturn => {
     }
   };
 
-  const handleFilter = (filter: string) => {
+  const handleFilterByOrder = (filter: string | undefined) => {
     if (!filter) {
       setFilteredUsers([]);
       return;
@@ -51,7 +51,7 @@ const useUsers = (): UseUsersReturn => {
     setFilteredUsers(sortedItems);
   };
 
-  return { users, handleSearch, filteredUsers, handleFilter };
+  return { users, handleSearch, filteredUsers, handleFilterByOrder };
 };
 
 export default useUsers;

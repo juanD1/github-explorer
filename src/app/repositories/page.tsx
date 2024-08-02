@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
-import SearchForm from "@/components/SearchBar";
 import UseRepositories from "./useRepositories";
+import SearchSection from "@/components/SearchSection";
 
 const RepositoriesPage: React.FC = () => {
   const { repositories, handleSearch } = UseRepositories();
@@ -9,7 +9,11 @@ const RepositoriesPage: React.FC = () => {
   return (
     <div>
       <h1>Repositories</h1>
-      <SearchForm onSearch={handleSearch} />
+      <SearchSection
+        placeholder="Search repositories on GitHub"
+        onSearch={handleSearch}
+        handleFilterByOrder={() => {}}
+      />
       <ul>
         {repositories.map((repo) => (
           <li key={repo.name}>

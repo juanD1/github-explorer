@@ -3,7 +3,7 @@ import React from "react";
 import Select from "react-select";
 
 interface Props {
-  onChange: (filter: string | undefined) => void;
+  handleFilterByOrder: (filter: string | undefined) => void;
 }
 
 const OPTIONS = [
@@ -11,14 +11,14 @@ const OPTIONS = [
   { value: "z-a", label: "Z-A" },
 ];
 
-const DropDown: React.FC<Props> = ({ onChange }) => (
+const DropDown: React.FC<Props> = ({ handleFilterByOrder }) => (
   <Select
     className="w-48"
     classNamePrefix="select"
     placeholder="select a filter"
     isClearable
     name="filter"
-    onChange={(e) => onChange(e?.value)}
+    onChange={(e) => handleFilterByOrder(e?.value)}
     options={OPTIONS}
   />
 );

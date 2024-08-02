@@ -1,12 +1,12 @@
 "use client";
 import React, { useEffect, useMemo } from "react";
-import SearchForm from "@/components/SearchBar";
 import useUsers from "./useUsers";
 import Image from "next/image";
-import DropDown from "@/components/DropDown";
+import SearchSection from "@/components/SearchSection";
 
 const UsersPage: React.FC = () => {
-  const { users, filteredUsers, handleSearch, handleFilter } = useUsers();
+  const { users, filteredUsers, handleSearch, handleFilterByOrder } =
+    useUsers();
   const items = useMemo(
     () => (filteredUsers.length ? filteredUsers : users),
     [users, filteredUsers]
@@ -17,13 +17,11 @@ const UsersPage: React.FC = () => {
   return (
     <div className="p-32">
       <h1 className="text-3xl font-bold mb-8">Users List</h1>
-      <div className="w-full flex">
-        <SearchForm
-          placeholder="Search user on GitHub"
-          onSearch={handleSearch}
-        />
-        <DropDown onChange={handleFilter} />
-      </div>
+      <SearchSection
+        placeholder="Search user on GitHub"
+        onSearch={handleSearch}
+        handleFilterByOrder={handleFilterByOrder}
+      />
       <ul className="grid grid-cols-4 gap-6">
         {items.map((user) => (
           <li
