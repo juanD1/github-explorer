@@ -22,7 +22,7 @@ const RepositoriesPage: React.FC = () => {
   useEffect(() => {}, [repositories, filteredRepositories]);
 
   return (
-    <div className="p-32">
+    <main>
       <h1 className="text-3xl font-bold mb-8">Repositories</h1>
       <SearchSection
         placeholder="Search repositories on GitHub"
@@ -53,7 +53,7 @@ const RepositoriesPage: React.FC = () => {
           ))}
         </ul>
       ) : (
-        <ul className="grid grid-cols-3 gap-6">
+        <ul className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 xl:gap-6">
           {items.map((repo) => (
             <li
               className="w-full p-2 border border-slate-500 rounded-md cursor-pointer transform transition duration-100 hover:scale-110"
@@ -138,7 +138,7 @@ const RepositoriesPage: React.FC = () => {
           ))}
         </ul>
       )}
-    </div>
+    </main>
   );
 };
 

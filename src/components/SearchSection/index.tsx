@@ -14,7 +14,7 @@ const SearchSection: React.FC<Props> = ({
   onSearch,
   handleFilterByOrder,
 }) => (
-  <div className="w-full flex">
+  <div className="w-full md:flex my-8 md:my-0">
     <SearchBar
       placeholder={placeholder}
       isLoading={isLoading}

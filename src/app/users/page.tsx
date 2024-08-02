@@ -21,7 +21,7 @@ const UsersPage: React.FC = () => {
   useEffect(() => {}, [users, filteredUsers]);
 
   return (
-    <div className="p-32">
+    <main>
       <h1 className="text-3xl font-bold mb-8">Users List</h1>
       <SearchSection
         placeholder="Search user on GitHub"
@@ -35,7 +35,7 @@ const UsersPage: React.FC = () => {
         </p>
       )}
       {loading ? (
-        <ul className="grid grid-cols-4 gap-6">
+        <ul className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 xl:gap-6">
           {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => (
             <li
               className="animate-pulse w-full p-2 border border-slate-400 rounded-md cursor-pointer transform transition duration-100"
@@ -51,7 +51,7 @@ const UsersPage: React.FC = () => {
           ))}
         </ul>
       ) : (
-        <ul className="grid grid-cols-4 gap-6">
+        <ul className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 xl:gap-6">
           {items.map((user) => (
             <li
               className="w-full p-2 border border-slate-500 rounded-md cursor-pointer transform transition duration-100 hover:scale-110"
@@ -66,14 +66,14 @@ const UsersPage: React.FC = () => {
                   width={50}
                   height={50}
                 />
-                <p className="p-0 m-0 text-base">{user?.login}</p>
+                <p className="p-0 m-0 text-sm md:text-base">{user?.login}</p>
                 {/* </a> */}
               </div>
             </li>
           ))}
         </ul>
       )}
-    </div>
+    </main>
   );
 };
 
