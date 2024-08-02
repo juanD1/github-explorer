@@ -1,11 +1,13 @@
+import Spinner from "@/components/Spinner";
 import React, { useState } from "react";
 
 interface Props {
   placeholder: string;
+  isLoading: boolean;
   onSearch: (query: string) => void;
 }
 
-const SearchBar: React.FC<Props> = ({ placeholder, onSearch }) => {
+const SearchBar: React.FC<Props> = ({ placeholder, isLoading, onSearch }) => {
   const [query, setQuery] = useState<string>("");
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -14,19 +16,19 @@ const SearchBar: React.FC<Props> = ({ placeholder, onSearch }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="w-96 mb-8">
+    <form onSubmit={handleSubmit} className="w-full mb-8 flex flex-row">
       <input
         type="text"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder={placeholder}
-        className="p-2 border border-gray-300 rounded"
+        className="p-2 border border-gray-300 rounded w-96"
       />
       <button
         type="submit"
-        className="w-32 ml-2 p-2 hover:bg-blue-400 bg-blue-500 text-white rounded"
+        className="w-32 ml-2 p-2 hover:bg-blue-100 bg-blue-500 text-white rounded flex justify-center"
       >
-        Search
+        {!isLoading ? "Search" : <Spinner />}
       </button>
     </form>
   );

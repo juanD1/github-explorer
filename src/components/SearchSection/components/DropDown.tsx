@@ -15,7 +15,7 @@ const DropDown: React.FC<Props> = ({ handleFilterByOrder }) => (
   <Select
     className="w-48"
     classNamePrefix="select"
-    placeholder="select a filter"
+    placeholder="Select a filter"
     isClearable
     name="filter"
     onChange={(e) => handleFilterByOrder(e?.value)}

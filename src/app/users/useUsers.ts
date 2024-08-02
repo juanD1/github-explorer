@@ -11,6 +11,8 @@ interface User {
 interface UseUsersReturn {
   users: User[];
   filteredUsers: User[];
+  loading: boolean;
+  error: string;
   handleSearch: (query: string) => Promise<void>;
   handleFilterByOrder: (filter: string | undefined) => void;
 }
@@ -18,9 +20,12 @@ interface UseUsersReturn {
 const useUsers = (): UseUsersReturn => {
   const [users, setUsers] = useState<User[]>([]);
   const [filteredUsers, setFilteredUsers] = useState<User[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string>("");
 
   const handleSearch = async (query: string) => {
     try {
+      setLoading(true);
       const response = await fetch(
         `https://api.github.com/search/users?q=${query}`
       );
@@ -29,9 +34,13 @@ const useUsers = (): UseUsersReturn => {
       }
 
       const data = await response.json();
+      setLoading(false);
+      setError("");
       setUsers(data.items);
     } catch (error) {
       console.error(error.message);
+      setLoading(false);
+      setError(error.message);
     }
   };
 
@@ -51,7 +60,14 @@ const useUsers = (): UseUsersReturn => {
     setFilteredUsers(sortedItems);
   };
 
-  return { users, handleSearch, filteredUsers, handleFilterByOrder };
+  return {
+    users,
+    loading,
+    error,
+    filteredUsers,
+    handleSearch,
+    handleFilterByOrder,
+  };
 };
 
 export default useUsers;
