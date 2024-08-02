@@ -1,12 +1,6 @@
 "use client";
 import { useState } from "react";
-
-interface User {
-  login: string;
-  id: number;
-  avatar_url: string;
-  html_url: string;
-}
+import { User } from "./types";
 
 interface UseUsersReturn {
   users: User[];
