@@ -34,7 +34,6 @@ const UseRepositories = (): UseRepositoriesReturn => {
       setError("");
       setRepositories(data.items);
     } catch (error) {
-      console.error(error.message);
       setLoading(false);
       setError(error.message);
     }
