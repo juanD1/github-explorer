@@ -34,6 +34,11 @@ const UsersPage: React.FC = () => {
           Upps! Error - {error}
         </p>
       )}
+      {!items.length && (
+        <p className="text-lx font-bold mb-8">
+          Upps! there is not results for your search
+        </p>
+      )}
       {loading ? (
         <ul className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 xl:gap-6">
           {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => (
