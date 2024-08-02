@@ -9,27 +9,6 @@ const Home: NextPage = () => {
       <div className="grid gap-8 md:grid-cols-1 lg:grid-cols-2">
         <div className="p-4 border rounded-md shadow-md">
           <Image
-            src="/images/repository.svg"
-            alt="repositories"
-            width={64}
-            height={64}
-            className="mx-auto mb-4"
-            priority
-          />
-          <p className="text-base mb-4">
-            Discover GitHub repositories to get inspired and learn about
-            programming. Explore various languages, frameworks, and projects.
-            Find valuable resources to enhance your skills and knowledge.
-          </p>
-          <Link
-            href="/repositories"
-            className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
-          >
-            Search Repositories
-          </Link>
-        </div>
-        <div className="p-4 border rounded-md shadow-md">
-          <Image
             src="/images/developer.svg"
             alt="Developers"
             width={64}
@@ -49,6 +28,27 @@ const Home: NextPage = () => {
             className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
           >
             Search Users
+          </Link>
+        </div>
+        <div className="p-4 border rounded-md shadow-md">
+          <Image
+            src="/images/repository.svg"
+            alt="repositories"
+            width={64}
+            height={64}
+            className="mx-auto mb-4"
+            priority
+          />
+          <p className="text-base mb-4">
+            Discover GitHub repositories to get inspired and learn about
+            programming. Explore various languages, frameworks, and projects.
+            Find valuable resources to enhance your skills and knowledge.
+          </p>
+          <Link
+            href="/repositories"
+            className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
+          >
+            Search Repositories
           </Link>
         </div>
         <div className="p-4 border rounded-md shadow-md">

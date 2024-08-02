@@ -3,6 +3,7 @@ import React, { useEffect, useMemo } from "react";
 import useUsers from "./useUsers";
 import Image from "next/image";
 import SearchSection from "@/components/SearchSection";
+import SkeletonCard from "@/components/SkeletonCard";
 
 const UsersPage: React.FC = () => {
   const {
@@ -41,18 +42,8 @@ const UsersPage: React.FC = () => {
       )}
       {loading ? (
         <ul className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 xl:gap-6">
-          {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => (
-            <li
-              className="animate-pulse w-full p-2 border border-slate-400 rounded-md cursor-pointer transform transition duration-100"
-              key={i}
-            >
-              <div className="flex items-center">
-                <div className="inline-block rounded-full ring-2 ring-slate-400 bg-slate-400 w-12 h-12 mr-4"></div>
-                <div className="flex-1 space-y-4 py-1">
-                  <div className="h-2 bg-slate-400 rounded"></div>
-                </div>
-              </div>
-            </li>
+          {[0, 1, 2, 3, 4].map((i) => (
+            <SkeletonCard key={i} />
           ))}
         </ul>
       ) : (
