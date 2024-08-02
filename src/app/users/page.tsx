@@ -63,7 +63,6 @@ const UsersPage: React.FC = () => {
               key={user?.id}
             >
               <div className="flex items-center">
-                {/* <a href={user.html_url} target="_blank" rel="noopener noreferrer"> */}
                 <Image
                   className="inline-block rounded-full ring-2 ring-blue-500 w-12 h-12 mr-4"
                   src={user?.avatar_url}
@@ -71,8 +70,14 @@ const UsersPage: React.FC = () => {
                   width={50}
                   height={50}
                 />
-                <p className="p-0 m-0 text-sm md:text-base">{user?.login}</p>
-                {/* </a> */}
+                <a
+                  href={user.html_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-base font-semibold text-blue-600 hover:underline"
+                >
+                  {user?.login}
+                </a>
               </div>
             </li>
           ))}

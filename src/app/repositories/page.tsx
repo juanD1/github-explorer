@@ -64,7 +64,7 @@ const RepositoriesPage: React.FC = () => {
               className="w-full p-2 border border-slate-500 rounded-md cursor-pointer transform transition duration-100 hover:scale-110"
               key={repo.node_id}
             >
-              <div className="flex items-center">
+              <div className="flex items-center text-left">
                 <Image
                   className="inline-block rounded-full ring-2 ring-blue-500 w-12 h-12 mr-4"
                   src={repo.owner?.avatar_url}
@@ -77,7 +77,7 @@ const RepositoriesPage: React.FC = () => {
                     href={repo.html_url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block text-lg font-semibold text-blue-600 hover:underline"
+                    className="text-base font-semibold text-blue-600 hover:underline"
                   >
                     {repo.owner.login}/{repo.name}
                   </a>
