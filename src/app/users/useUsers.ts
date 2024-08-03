@@ -33,7 +33,11 @@ const useUsers = (): UseUsersReturn => {
       setUsers(data.items);
     } catch (error) {
       setLoading(false);
-      setError(error.message);
+      if (error instanceof Error) {
+        setError(error.message);
+      } else {
+        throw error;
+      }
     }
   };
 
